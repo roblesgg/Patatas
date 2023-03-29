@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Viajes de Patatas</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      color: #333333;
+    }
+
+    #container {
+      margin: 50px auto;
+      width: 500px;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    input {
+      width: 50px;
+      font-size: 18px;
+      padding: 5px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      font-size: 18px;
+      background-color: #333333;
+      color: #ffffff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+    #resultado {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Calculadora de Viajes de Patatas</h1>
+    <form>
+      <label for="grandes">Número de bandejas grandes:</label>
+      <input type="number" id="grandes" name="grandes" min="0" value="0"><br>
+      <label for="medianas">Número de bandejas medianas:</label>
+      <input type="number" id="medianas" name="medianas" min="0" value="0"><br>
+      <label for="pequenas">Número de bandejas pequeñas:</label>
+      <input type="number" id="pequenas" name="pequenas" min="0" value="0"><br>
+      <button type="button" onclick="calcularViajes()">Calcular</button>
+    </form>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularViajes() {
+      var grandes = parseInt(document.getElementById("grandes").value);
+      var medianas = parseInt(document.getElementById("medianas").value);
+      var pequenas = parseInt(document.getElementById("pequenas").value);
+
+      var totalBandejas = grandes + medianas + pequenas;
+      var viajes = Math.ceil(totalBandejas / 6);
+
+      var resultado = "Debes hacer " + viajes + " viajes para preparar todas las bandejas.";
+
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+  </script>
+</body>
+</html>
